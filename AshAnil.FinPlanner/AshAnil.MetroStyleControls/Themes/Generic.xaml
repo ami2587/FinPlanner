@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:AshAnil.MetroStyleControls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/AshAnil.MetroStyleControls;component/Themes/MetroWindowResources.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
