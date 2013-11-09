@@ -8,7 +8,7 @@ namespace AshAnil.FinPlanner.DBInfrastructure
 {
     public static class Constants
     {
-        public const string DATABASENAME = "FinTrackProject";
+        public const string DATABASENAME = "FinPlannerProject";
         public const string MDFFILEEXTENSION = ".mdf";
         public const string LDFFILEEXTENSION = ".ldf";
         public const string SERVERCONNECTIONSTRING = "ServerConnectionString";
