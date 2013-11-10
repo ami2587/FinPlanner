@@ -41,7 +41,7 @@ namespace AshAnil.FinPlanner.Infrastructure
                 if (currencyCode != value)
                 {
                     currencyCode = value;
-                    OnPropertyChanged("CurrencyCode");
+                    OnPropertyChanged(() => CurrencyCode);
                 }
             }
         }
@@ -57,7 +57,7 @@ namespace AshAnil.FinPlanner.Infrastructure
                 if (amount != value)
                 {
                     amount = value;
-                    OnPropertyChanged("Amount");
+                    OnPropertyChanged(() => Amount);
                 }
             }
         }

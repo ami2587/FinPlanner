@@ -41,7 +41,7 @@ namespace AshAnil.FinPlanner.BusinessObjects
         /// <summary>
         /// Parent business object
         /// </summary>
-        public virtual BusinessObjectBase Parent
+        public BusinessObjectBase Parent
         {
             get
             {
@@ -52,7 +52,7 @@ namespace AshAnil.FinPlanner.BusinessObjects
                 if (parent != value)
                 {
                     parent = value;
-                    OnPropertyChanged("Parent");
+                    OnPropertyChanged(() => Parent);
                 }
             }
         }

@@ -38,7 +38,7 @@ namespace AshAnil.FinPlanner.Infrastructure
                 if (firstName != value)
                 {
                     firstName = value;
-                    OnPropertyChanged("FirstName");
+                    OnPropertyChanged(() => FirstName);
                 }
             }
         }
@@ -54,7 +54,7 @@ namespace AshAnil.FinPlanner.Infrastructure
                 if (lastName != value)
                 {
                     lastName = value;
-                    OnPropertyChanged("LastName");
+                    OnPropertyChanged(() => LastName);
                 }
             }
         }
@@ -70,7 +70,7 @@ namespace AshAnil.FinPlanner.Infrastructure
                 if (middleName != value)
                 {
                     middleName = value;
-                    OnPropertyChanged("MiddleName");
+                    OnPropertyChanged(() => MiddleName);
                 }
             }
         }
