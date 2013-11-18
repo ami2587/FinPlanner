@@ -19,7 +19,7 @@ namespace AshAnil.FinPlanner.BusinessObjects
 
         public BusinessObjectBase(BusinessObjectBase parent)
         {
-            this.id = IdFetcher.GetNextId();
+            id = IdFetcher.GetNextId();
             this.parent = parent;
         }
 
@@ -34,7 +34,7 @@ namespace AshAnil.FinPlanner.BusinessObjects
         {
             get
             {
-                return this.id;
+                return id;
             }
         }
 
