@@ -44,24 +44,34 @@ namespace AshAnil.FinPlanner.DBInfrastructure
         private void CreateNewDatabaseInternal()
         {
 
-            SqlConnection sqlConnectionStringToLocalServer = new SqlConnection(ConfigurationManager.ConnectionStrings[Constants.MASTERDBCONNECTIONSTRING].ConnectionString);
-            SqlCommand myCommand = new SqlCommand(GetSQLQueryToCreateNewDatabase(), sqlConnectionStringToLocalServer);
-            try
+            using (SqlConnection sqlConnectionStringToLocalServer =
+                new SqlConnection(ConfigurationManager.ConnectionStrings[Constants.MASTERDBCONNECTIONSTRING].ConnectionString))
             {
-                sqlConnectionStringToLocalServer.Open();
-                myCommand.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                if (sqlConnectionStringToLocalServer.State == ConnectionState.Open)
+                using (SqlCommand myCommand = new SqlCommand(GetSQLQueryToCreateNewDatabase(), sqlConnectionStringToLocalServer))
                 {
-                    sqlConnectionStringToLocalServer.Close();
+                    sqlConnectionStringToLocalServer.Open();
+                    myCommand.ExecuteNonQuery();
                 }
             }
+
+            //SqlConnection sqlConnectionStringToLocalServer = new SqlConnection(ConfigurationManager.ConnectionStrings[Constants.MASTERDBCONNECTIONSTRING].ConnectionString);
+            //SqlCommand myCommand = new SqlCommand(GetSQLQueryToCreateNewDatabase(), sqlConnectionStringToLocalServer);
+            //try
+            //{
+            //    sqlConnectionStringToLocalServer.Open();
+            //    myCommand.ExecuteNonQuery();
+            //}
+            //catch (Exception ex)
+            //{
+
+            //}
+            //finally
+            //{
+            //    if (sqlConnectionStringToLocalServer.State == ConnectionState.Open)
+            //    {
+            //        sqlConnectionStringToLocalServer.Close();
+            //    }
+            //}
         }
 
         private string GetSQLQueryToCreateNewDatabase()
