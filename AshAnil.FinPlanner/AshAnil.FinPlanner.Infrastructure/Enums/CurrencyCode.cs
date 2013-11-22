@@ -3,10 +3,15 @@ namespace AshAnil.FinPlanner.Infrastructure
 {
     public enum CurrencyCode
     {
-        //Indian Rupee
+        
+        /// <summary>
+        /// Indian Rupee
+        /// </summary>
         INR,
 
-        //US Dollar
+        /// <summary>
+        /// US Dollar
+        /// </summary>
         USD
     }
 }
