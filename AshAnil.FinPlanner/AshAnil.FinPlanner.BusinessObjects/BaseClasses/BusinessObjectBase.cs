@@ -1,4 +1,5 @@
-﻿using AshAnil.FinPlanner.DBInfrastructure;
+﻿using System.ComponentModel;
+using AshAnil.FinPlanner.DBInfrastructure;
 using AshAnil.FinPlanner.Infrastructure;
 
 namespace AshAnil.FinPlanner.BusinessObjects
@@ -12,7 +13,7 @@ namespace AshAnil.FinPlanner.BusinessObjects
 
         uint id;
         BusinessObjectBase parent;
-
+        
         #endregion
 
         #region Constructor
@@ -57,6 +58,26 @@ namespace AshAnil.FinPlanner.BusinessObjects
             }
         }
 
+        /// <summary>
+        /// This property signifies whether the current instance of the business object is marked dirty or not.
+        /// This bit would then be used to identify if the save the instance values in the database or not.
+        /// </summary>
+        [BindableAttribute(false)]
+        public bool IsDirty
+        {
+            get { return CurrentEntityState != EntityStateType.Unchanged; }
+        }
+
         #endregion
+
+        #region Protected Properties
+
+        /// <summary>
+        /// This represents the current state of the instance of any business object at any given point of time.
+        /// </summary>
+        protected EntityStateType CurrentEntityState { get; private set; }
+
+        #endregion
+
     }
 }

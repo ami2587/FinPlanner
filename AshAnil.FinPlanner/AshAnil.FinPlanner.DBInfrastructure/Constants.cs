@@ -13,5 +13,7 @@ namespace AshAnil.FinPlanner.DBInfrastructure
         public const string LDFFILEEXTENSION = ".ldf";
         public const string SERVERCONNECTIONSTRING = "ServerConnectionString";
         public const string MASTERDBCONNECTIONSTRING = "MasterDBConnectionString";
+        public const string PROJECTDBCONNECTIONSTRING = "ProjectDBConnectionString";
+        public const string DATABASESCHEMARESOURCEFILEPATH = "AshAnil.FinPlanner.DBResources.SchemaScripts.CreateSchemas.sql";
     }
 }

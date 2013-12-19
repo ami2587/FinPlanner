@@ -72,6 +72,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AshAnil.FinPlanner.DBResources\AshAnil.FinPlanner.DBResources.csproj">
+      <Project>{8bcebb7a-cece-4fed-81a1-ec6fa47e2ed3}</Project>
+      <Name>AshAnil.FinPlanner.DBResources</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

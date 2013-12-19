@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AshAnil.FinPlanner.DBResources;
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
 
@@ -35,6 +36,7 @@ namespace AshAnil.FinPlanner.DBInfrastructure
         public void CreateNewDatabase()
         {
             CreateNewDatabaseInternal();
+            CreateDatabaseSchema();
         }
 
         #endregion
@@ -43,7 +45,6 @@ namespace AshAnil.FinPlanner.DBInfrastructure
 
         private void CreateNewDatabaseInternal()
         {
-
             using (SqlConnection sqlConnectionStringToLocalServer =
                 new SqlConnection(ConfigurationManager.ConnectionStrings[Constants.MASTERDBCONNECTIONSTRING].ConnectionString))
             {
@@ -74,6 +75,19 @@ namespace AshAnil.FinPlanner.DBInfrastructure
             //}
         }
 
+        private void CreateDatabaseSchema()
+        {
+            using (SqlConnection sqlConnectionStringToDatabase =
+               new SqlConnection(ConfigurationManager.ConnectionStrings[Constants.PROJECTDBCONNECTIONSTRING].ConnectionString))
+            {
+                using (SqlCommand myCommand = new SqlCommand(GetSQLQueryTOCreateDatabaseSchema(), sqlConnectionStringToDatabase))
+                {
+                    sqlConnectionStringToDatabase.Open();
+                    myCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
         private string GetSQLQueryToCreateNewDatabase()
         {
             string sqlCommandCreateNewProject = string.Empty;
@@ -86,6 +100,13 @@ namespace AshAnil.FinPlanner.DBInfrastructure
                 "LOG ON (NAME = " + ldfFileName + ", FILENAME = '" + ldfFilePath + "', " +
                 "SIZE = 1MB, MAXSIZE = 5MB, FILEGROWTH = 10%)";
             return sqlCommandCreateNewProject;
+        }
+
+        private string GetSQLQueryTOCreateDatabaseSchema()
+        {
+            Stream createScriptStream = DBResourcesHelper.GetResourceStream(Constants.DATABASESCHEMARESOURCEFILEPATH);
+            StreamReader reader = new StreamReader(createScriptStream);
+            return new StringBuilder(reader.ReadToEnd()).ToString();
         }
 
         private void ExportDatabase(string filePath)

@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AshAnil.FinPlanner.Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AshAnil.MetroStyleControls", "AshAnil.MetroStyleControls\AshAnil.MetroStyleControls.csproj", "{B3EDAC1C-E54F-4123-BB64-401C89082DC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AshAnil.FinPlanner.DBResources", "AshAnil.FinPlanner.DBResources\AshAnil.FinPlanner.DBResources.csproj", "{8BCEBB7A-CECE-4FED-81A1-EC6FA47E2ED3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{B3EDAC1C-E54F-4123-BB64-401C89082DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3EDAC1C-E54F-4123-BB64-401C89082DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3EDAC1C-E54F-4123-BB64-401C89082DC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BCEBB7A-CECE-4FED-81A1-EC6FA47E2ED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BCEBB7A-CECE-4FED-81A1-EC6FA47E2ED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BCEBB7A-CECE-4FED-81A1-EC6FA47E2ED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BCEBB7A-CECE-4FED-81A1-EC6FA47E2ED3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

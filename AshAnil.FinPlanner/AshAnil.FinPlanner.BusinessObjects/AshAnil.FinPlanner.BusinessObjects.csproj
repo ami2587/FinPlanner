@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BusinessObjectBase.cs" />
+    <Compile Include="BusinessEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BusinessTransaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AshAnil.FinPlanner.DBInfrastructure\AshAnil.FinPlanner.DBInfrastructure.csproj">

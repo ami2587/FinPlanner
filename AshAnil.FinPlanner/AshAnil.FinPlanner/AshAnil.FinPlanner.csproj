@@ -61,6 +61,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Helper Classes\ProjectHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -94,6 +95,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AshAnil.FinPlanner.DBInfrastructure\AshAnil.FinPlanner.DBInfrastructure.csproj">
+      <Project>{f7a647f5-ff2d-46c1-864a-23cdd1e512e9}</Project>
+      <Name>AshAnil.FinPlanner.DBInfrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AshAnil.MetroStyleControls\AshAnil.MetroStyleControls.csproj">
       <Project>{b3edac1c-e54f-4123-bb64-401c89082dc7}</Project>
       <Name>AshAnil.MetroStyleControls</Name>

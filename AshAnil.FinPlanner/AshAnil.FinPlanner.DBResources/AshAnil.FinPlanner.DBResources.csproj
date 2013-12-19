@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6C0D51AB-9963-44DF-B8A5-4A7B43AF1AED}</ProjectGuid>
+    <ProjectGuid>{8BCEBB7A-CECE-4FED-81A1-EC6FA47E2ED3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AshAnil.FinPlanner.Infrastructure</RootNamespace>
-    <AssemblyName>AshAnil.FinPlanner.Infrastructure</AssemblyName>
+    <RootNamespace>AshAnil.FinPlanner.DBResources</RootNamespace>
+    <AssemblyName>AshAnil.FinPlanner.DBResources</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,25 +28,32 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BindableBase.cs" />
-    <Compile Include="Enums\CurrencyCode.cs" />
-    <Compile Include="Enums\EntityStateType.cs" />
-    <Compile Include="Money.cs" />
-    <Compile Include="Name.cs" />
+    <Compile Include="DBResourcesHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="BusinessObjectsScripts\BusinessEntity.sql" />
+    <None Include="BusinessObjectsScripts\BusinessTransaction.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SchemaScripts\CreateSchemas.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>powershell.exe -command "type $(ProjectDir)BusinessObjectsScripts\*.* &gt;$(ProjectDir)SchemaScripts\CreateSchemas.sql"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
